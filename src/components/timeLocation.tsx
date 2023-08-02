@@ -1,5 +1,22 @@
 import React from 'react';
-import { formatToLocalTime } from '@/lib/openWeather';
+
+const date = new Date();
+
+const formattedDate = date.toLocaleString('en-IN', {
+  weekday: 'long',
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+const formattedTime = date.toLocaleString('en-US', {
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric',
+  hour12: false,
+});
+
+const formattedDateTime = `${formattedDate} | ${formattedTime}`;
 
 type Props = {
   weather: any;
@@ -11,9 +28,7 @@ function TimeLocation({ weather: { dt, name, country } }: Props) {
   return (
     <div>
       <div className='flex items-center justify-center text-center my-6'>
-        <p className='text-base md:text-xl font-normal'>
-          {formatToLocalTime(dt, userTimezone)}
-        </p>
+        <p className='text-base md:text-xl font-normal'>{formattedDateTime}</p>
       </div>
 
       <div className='flex items-center justify-center my-3'>
