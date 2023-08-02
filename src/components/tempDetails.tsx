@@ -62,7 +62,9 @@ function TempDetails({
           alt='main weather icon'
           className='w-20 shadow-2xl drop-shadow-2xl rounded-full bg-neutral-300 dark:bg-neutral-600'
         />
-        <p className='text-5xl'>{`${temp.toFixed()}° ${tempUnit}`}</p>
+        <p className='text-5xl'>
+          {`${temp.toFixed()}`} <span className='text-lg'>°{tempUnit}</span>
+        </p>
         <div className='flex flex-col space-y-2 justify-center'>
           <div className='flex font-light text-sm items-center'>
             <TbTemperature size={18} className='mr-1' />

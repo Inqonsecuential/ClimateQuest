@@ -60,7 +60,7 @@ export default function Home() {
         <title>Climate Quest</title>
       </Head>
       <div
-        className={`mx-auto max-w-screen h-screen py-5 flex justify-center shadow-gray-400 font-nunito dark:bg-gray-800 dark:text-gray-100`}
+        className={`mx-auto w-screen  flex justify-center shadow-gray-400 font-nunito dark:bg-gray-800 dark:text-gray-100 px-3 sm:px-0`}
       >
         <div className='max-w-[50rem] flex flex-col justify-center mb-10'>
           <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />

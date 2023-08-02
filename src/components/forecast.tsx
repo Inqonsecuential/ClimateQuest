@@ -15,7 +15,7 @@ function Forecast({ title, items }: Props) {
       </div>
       <hr className='my-2' />
 
-      <div className='flex flex-row items-center justify-between'>
+      <div className='flex flex-row items-center justify-between pb-6'>
         {items?.map((item: any, index: any) => (
           <div
             key={index}
