@@ -6,6 +6,7 @@ import getFormattedWeatherData from '@/lib/openWeather';
 import { useEffect, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Head from 'next/head';
 
 interface WeatherData {
   timezone: any;
@@ -54,28 +55,33 @@ export default function Home() {
   }, [query, units]);
 
   return (
-    <div
-      className={`mx-auto max-w-screen h-screen py-5 flex justify-center bg-gradient-to-br shadow-xl shadow-gray-400 font-nunito`}
-    >
-      <div className='max-w-[50rem] flex flex-col justify-center mb-10'>
-        <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
+    <div>
+      <Head>
+        <title>Climate Quest</title>
+      </Head>
+      <div
+        className={`mx-auto max-w-screen h-screen py-5 flex justify-center shadow-gray-400 font-nunito dark:bg-gray-800 dark:text-gray-100`}
+      >
+        <div className='max-w-[50rem] flex flex-col justify-center mb-10'>
+          <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
 
-        {weather && (
-          <div>
-            <TimeLocation weather={weather} />
-            <TempDetails
-              weather={weather}
-              speedUnit={units === 'metric' ? 'm/s' : 'mph'}
-              tempUnit={units === 'metric' ? 'C' : 'F'}
-            />
+          {weather && (
+            <div>
+              <TimeLocation weather={weather} />
+              <TempDetails
+                weather={weather}
+                speedUnit={units === 'metric' ? 'm/s' : 'mph'}
+                tempUnit={units === 'metric' ? 'C' : 'F'}
+              />
 
-            <Forecast title='hourly forecast' items={weather.list_hourly} />
-            <Forecast title='daily forecast' items={weather.list_daily} />
-          </div>
-        )}
+              <Forecast title='hourly forecast' items={weather.list_hourly} />
+              <Forecast title='daily forecast' items={weather.list_daily} />
+            </div>
+          )}
+        </div>
+
+        <ToastContainer autoClose={5000} theme='colored' newestOnTop={true} />
       </div>
-
-      <ToastContainer autoClose={5000} theme='colored' newestOnTop={true} />
     </div>
   );
 }

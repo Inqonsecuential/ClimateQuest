@@ -5,12 +5,13 @@ type Props = {
   weather: any;
 };
 
+const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
 function TimeLocation({ weather: { dt, name, country } }: Props) {
-  const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   return (
     <div>
-      <div className='flex items-center justify-center my-6'>
-        <p className='text-xl font-extralight'>
+      <div className='flex items-center justify-center text-center my-6'>
+        <p className='text-base md:text-xl font-normal'>
           {formatToLocalTime(dt, userTimezone)}
         </p>
       </div>

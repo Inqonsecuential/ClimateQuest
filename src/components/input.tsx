@@ -43,7 +43,7 @@ function Input({ setQuery, units, setUnits }: Props) {
   };
 
   return (
-    <div className='flex flex-row justify-center items-center my-6 max-w-[50rem]'>
+    <div className='flex flex-row justify-center items-center my-6 max-w-[50rem] pt-28 md:pt-6'>
       <div className='flex flex-row w-3/4 items-center justify-center space-x-4'>
         <input
           value={city}
@@ -51,7 +51,7 @@ function Input({ setQuery, units, setUnits }: Props) {
           onKeyPress={handleKeyPress}
           type='text'
           placeholder='Search'
-          className='w-full px-4 py-2 text-xl placeholder-gray-400 border rounded-lg shadow-xl focus:outline-none focus:border-transparent'
+          className='w-full px-4 py-2 text-xl placeholder-gray-400 border rounded-lg shadow-xl focus:outline-none focus:border-transparent dark:bg-gray-600 dark:placeholder:text-gray-200'
         />
         <BiSearch
           size={25}

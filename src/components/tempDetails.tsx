@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import { GiWaterDrop } from 'react-icons/gi';
-import { GrDirections } from 'react-icons/gr';
+import { BiSolidNavigation } from 'react-icons/bi';
 import { TbArrowDown, TbArrowUp, TbTemperature } from 'react-icons/tb';
 import { TiWeatherWindy } from 'react-icons/ti';
 import { iconUrlFromCode } from '@/lib/openWeather';
@@ -50,7 +50,7 @@ function TempDetails({
   const direction = directions[index];
   return (
     <div>
-      <div className='flex items-center justify-center py-6 text-xl text-cyan-700'>
+      <div className='flex items-center justify-center py-6 text-xl text-cyan-700 dark:text-cyan-200'>
         <p>{details}</p>
       </div>
 
@@ -60,7 +60,7 @@ function TempDetails({
           width={500}
           height={500}
           alt='main weather icon'
-          className='w-20 shadow-2xl drop-shadow-2xl rounded-full bg-neutral-300'
+          className='w-20 shadow-2xl drop-shadow-2xl rounded-full bg-neutral-300 dark:bg-neutral-600'
         />
         <p className='text-5xl'>{`${temp.toFixed()}° ${tempUnit}`}</p>
         <div className='flex flex-col space-y-2 justify-center'>
@@ -80,7 +80,7 @@ function TempDetails({
             <span className='font-medium ml-1'>{`${speed} ${speedUnit}`}</span>
           </div>
           <div className='flex font-light text-sm items-center'>
-            <GrDirections size={18} className='mr-1' />
+            <BiSolidNavigation size={18} className='mr-1 ' />
             Direction:
             <span className='font-medium ml-1'>{direction}</span>
           </div>
