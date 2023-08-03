@@ -79,7 +79,6 @@ export default function Home() {
             </div>
           )}
         </div>
-
         <ToastContainer autoClose={5000} theme='colored' newestOnTop={true} />
       </div>
     </div>

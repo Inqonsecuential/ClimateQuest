@@ -50,21 +50,23 @@ function TempDetails({
   const direction = directions[index];
   return (
     <div>
-      <div className='flex items-center justify-center py-6 text-xl text-cyan-700 dark:text-cyan-200'>
+      <div className='flex items-center justify-center py-6 text-xl text-cyan-900 font-bold underline dark:text-cyan-200'>
         <p>{details}</p>
       </div>
 
       <div className='flex flex-row items-center justify-between py-3'>
-        <Image
-          src={iconUrlFromCode(icon)}
-          width={500}
-          height={500}
-          alt='main weather icon'
-          className='w-20 shadow-2xl drop-shadow-2xl rounded-full bg-neutral-300 dark:bg-neutral-600'
-        />
-        <p className='text-5xl'>
-          {`${temp.toFixed()}`} <span className='text-lg'>°{tempUnit}</span>
-        </p>
+        <div className='flex items-center justify-center flex-row'>
+          <Image
+            src={iconUrlFromCode(icon)}
+            width={500}
+            height={500}
+            alt='main weather icon'
+            className='w-20 shadow-2xl drop-shadow-2xl rounded-full bg-gray-500 dark:bg-neutral-600'
+          />
+          <p className='text-5xl ml-6'>
+            {`${temp.toFixed()}`} <span className='text-xl'>°{tempUnit}</span>
+          </p>
+        </div>
         <div className='flex flex-col space-y-2 justify-center'>
           <div className='flex font-light text-sm items-center'>
             <TbTemperature size={18} className='mr-1' />
