@@ -8,6 +8,7 @@ interface TimeProps {
 const TimeDisplay: React.FC<TimeProps> = ({ lat, lon }) => {
   const [date, setDate] = useState<string>('');
   const [time, setTime] = useState<string>('');
+  const [error, setError] = useState<string>('');
 
   useEffect(() => {
     fetchDateTime();
@@ -25,10 +26,10 @@ const TimeDisplay: React.FC<TimeProps> = ({ lat, lon }) => {
         setDate(formatDate(currentTime));
         setTime(formatTime(currentTime));
       } else {
-        // Handle error here, e.g., setError(errorMessage);
+        setError('Fetch Error');
       }
     } catch (error) {
-      // Handle error here, e.g., setError(errorMessage);
+      setError('Fetch Error');
     }
   };
   const formatDate = (date: Date): string => {
@@ -58,7 +59,7 @@ const TimeDisplay: React.FC<TimeProps> = ({ lat, lon }) => {
           {date} | {time}
         </p>
       ) : (
-        <p>Loading...</p>
+        <p>{error ? error : 'Loading...'}</p>
       )}
     </div>
   );
